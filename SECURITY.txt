@@ -1,0 +1,6 @@
+1. Boot → TPM + Secure Boot
+2. Login → Face ID + Voice + Intent
+3. Network → Tailscale (always-on VPN)
+4. Apps → Signed, sandboxed, AI-audited
+5. AI → Watches every process → kills threats
+6. Data → Encrypted, local-first, user-owned
