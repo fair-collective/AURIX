@@ -1,0 +1,12 @@
+services:
+  holo:
+    image: nginx
+    volumes:
+      - ./holo:/usr/share/nginx/html
+    ports: ["80:80"]
+  ai:
+    build: ./ai
+    ports: ["8000:8000"]
+  bci:
+    build: ./bci
+    ports: ["8001:8001"]
