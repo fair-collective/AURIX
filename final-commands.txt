@@ -1,0 +1,13 @@
+# 1. Clone & Structure
+git clone https://github.com/fair-collective/aurix.git
+cd aurix
+mkdir holo ai bci
+
+# 2. Add HOLO (index.html above)
+# 3. Add AI (core.py)
+# 4. Add BCI (thought.py)
+
+# 5. Commit & Push
+git add .
+git commit -m "feat: HOLO + AI + BCI v0.1"
+git push
