@@ -59,3 +59,9 @@
 │  • Speak to deploy           │
 │  • Think to create           │
 └──────────────────────────────┘
+git clone https://github.com/fair-collective/aurix.git
+cd aurix
+# Paste the README above into README.md
+git add README.md
+git commit -m "init: holographic vision"
+git push
