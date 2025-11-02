@@ -1,0 +1,5 @@
+// In headset
+const ws = new WebSocket("wss://adam.ceo/bci", [], { headers: { "x-brain-id": "user-001" } });
+eeg.on("alpha", level => {
+  if (level > 0.7) ws.send(JSON.stringify({ intent: "focus" }));
+});
