@@ -1,0 +1,6 @@
+aurix/
+├── holo/             ← WebXR boot (HOLO)
+├── ai/               ← Grok kernel (AI)
+├── bci/              ← Thought API (BCI)
+├── README.md         ← Vision
+└── docker-compose.yml
