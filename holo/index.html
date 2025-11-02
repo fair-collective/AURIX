@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AURIX — Holographic Boot</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #boot-text { font-size: 0.5m; color: #0ff; text-shadow: 0 0 10px #0ff; }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+  </style>
+</head>
+<body>
+  <a-scene background="color: #000" cursor="rayOrigin: mouse" raycaster="objects: .clickable">
+    <!-- Holographic Grid -->
+    <a-plane position="0 0 -3" rotation="-90 0 0" width="20" height="20" color="#111" opacity="0.8"
+             material="wireframe: true; wireframeLinewidth: 2"></a-plane>
+
+    <!-- AURIX Logo -->
+    <a-entity position="0 1.5 -2">
+      <a-text id="boot-text" value="AURIX" align="center" color="#0ff" width="6" class="pulse"></a-text>
+      <a-text value="HOLOGRAPHIC OS" align="center" position="0 -0.4 0" color="#0af" width="5"></a-text>
+      <a-text value="AI • BCI • ZERO TRUST" align="center" position="0 -0.7 0" color="#0ff" width="6" opacity="0.7"></a-text>
+    </a-entity>
+
+    <!-- Floating Orbs -->
+    <a-sphere position="-2 1 -1.5" radius="0.3" color="#0f0" class="clickable" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-sphere>
+    <a-sphere position="2 1.5 -1.5" radius="0.3" color="#f0f" class="clickable" animation="property: rotation; to: 0 -360 0; loop: true; dur: 8000"></a-sphere>
+
+    <!-- AI Co-Pilot -->
+    <a-entity position="0 0.5 -1.5" gltf-model="#ai-bot" scale="0.5 0.5 0.5" animation="property: rotation; to: 0 360 0; loop: true; dur: 15000"></a-entity>
+
+    <!-- Enter Button -->
+    <a-box position="0 -0.5 -1.5" depth="0.1" height="0.3" width="1.5" color="#0f0" class="clickable"
+           event-set__mouseenter="_event: mouseenter; color: #0f8"
+           event-set__mouseleave="_event: mouseleave; color: #0f0"
+           event-set__click="_event: click; _target: #boot-text; value: AURIX ONLINE">
+      <a-text value="ENTER AURIX" align="center" position="0 0 0.06" color="#000" width="2"></a-text>
+    </a-box>
+  </a-scene>
+
+  <!-- AI Bot Model -->
+  <script>
+    AFRAME.registerComponent('speech', {
+      init: function () {
+        this.el.addEventListener('click', () => {
+          fetch('https://adam.ceo/api/speak', {
+            method: 'POST',
+            body: JSON.stringify({ text: "Aurix online. Holographic interface active." })
+          }).then(r => r.blob()).then(b => new Audio(URL.createObjectURL(b)).play());
+        });
+      }
+    });
+  </script>
+
+  <a-assets>
+    <a-asset-item id="ai-bot" src="https://models.readyplayer.me/672f8a1b9c5d3f001c8b4567.glb"></a-asset-item>
+  </a-assets>
+</body>
+</html>
