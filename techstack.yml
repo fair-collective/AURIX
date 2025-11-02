@@ -1,0 +1,8 @@
+base: Ubuntu Minimal + Rust
+kernel: Linux 6.8 + eBPF
+ui: Flutter 3D + WebGPU + SceneKit
+ai: Ollama + Grok API
+security: Falco + CrowdSec + AI Guard
+vpn: Tailscale
+storage: ZFS + IPFS
+holography: ARCore / ARKit / WebXR
