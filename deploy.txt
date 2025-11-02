@@ -1,0 +1,3 @@
+git clone https://github.com/fair-collective/aurix.git
+mkdir -p aurix/holo && cp index.html aurix/holo/
+git add . && git commit -m "feat: holographic boot (HOLO)" && git push
